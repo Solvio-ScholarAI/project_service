@@ -21,7 +21,7 @@ public class ProjectService {
 
     private final ProjectRepository projectRepository;
     private final ProjectMapper projectMapper;
-    private final ProjectDeletionService projectDeletionService;
+//    private final ProjectDeletionService projectDeletionService;
 
     /**
      * Create a new project
@@ -134,17 +134,17 @@ public class ProjectService {
         return projectMapper.toDto(savedProject);
     }
 
-    /**
-     * Delete a project and all its related data
-     */
-    public void deleteProject(UUID projectId, UUID userId) {
-        log.info("Deleting project with ID: {} for user: {}", projectId, userId);
-
-        // Use the comprehensive deletion service to delete project and all related data
-        projectDeletionService.deleteProjectCompletely(projectId, userId);
-
-        log.info("Project and all related data deleted successfully with ID: {}", projectId);
-    }
+//    /**
+//     * Delete a project and all its related data
+//     */
+//    public void deleteProject(UUID projectId, UUID userId) {
+//        log.info("Deleting project with ID: {} for user: {}", projectId, userId);
+//
+//        // Use the comprehensive deletion service to delete project and all related data
+//        projectDeletionService.deleteProjectCompletely(projectId, userId);
+//
+//        log.info("Project and all related data deleted successfully with ID: {}", projectId);
+//    }
 
     /**
      * Update project paper count
