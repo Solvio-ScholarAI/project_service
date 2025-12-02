@@ -76,35 +76,35 @@ public class PaperExtraction {
 
     @Column(name = "confidence_scores", columnDefinition = "TEXT")
     private String confidenceScores; // JSON object with confidence scores
-
-    // Relationships to extracted content
-    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<ExtractedSection> sections = new ArrayList<>();
-
-    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<ExtractedFigure> figures = new ArrayList<>();
-
-    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<ExtractedTable> tables = new ArrayList<>();
-
-    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<ExtractedEquation> equations = new ArrayList<>();
-
-    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<ExtractedCodeBlock> codeBlocks = new ArrayList<>();
-
-    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<ExtractedReference> references = new ArrayList<>();
-
-    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @Builder.Default
-    private List<ExtractedEntity> entities = new ArrayList<>();
+//
+//    // Relationships to extracted content
+//    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @Builder.Default
+//    private List<ExtractedSection> sections = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @Builder.Default
+//    private List<ExtractedFigure> figures = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @Builder.Default
+//    private List<ExtractedTable> tables = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @Builder.Default
+//    private List<ExtractedEquation> equations = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @Builder.Default
+//    private List<ExtractedCodeBlock> codeBlocks = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @Builder.Default
+//    private List<ExtractedReference> references = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "paperExtraction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @Builder.Default
+//    private List<ExtractedEntity> entities = new ArrayList<>();
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
@@ -114,39 +114,39 @@ public class PaperExtraction {
     @Column(name = "updated_at")
     private Instant updatedAt;
 
-    // Helper methods
-    public void addSection(ExtractedSection section) {
-        sections.add(section);
-        section.setPaperExtraction(this);
-    }
-
-    public void addFigure(ExtractedFigure figure) {
-        figures.add(figure);
-        figure.setPaperExtraction(this);
-    }
-
-    public void addTable(ExtractedTable table) {
-        tables.add(table);
-        table.setPaperExtraction(this);
-    }
-
-    public void addEquation(ExtractedEquation equation) {
-        equations.add(equation);
-        equation.setPaperExtraction(this);
-    }
-
-    public void addCodeBlock(ExtractedCodeBlock codeBlock) {
-        codeBlocks.add(codeBlock);
-        codeBlock.setPaperExtraction(this);
-    }
-
-    public void addReference(ExtractedReference reference) {
-        references.add(reference);
-        reference.setPaperExtraction(this);
-    }
-
-    public void addEntity(ExtractedEntity entity) {
-        entities.add(entity);
-        entity.setPaperExtraction(this);
-    }
+//    // Helper methods
+//    public void addSection(ExtractedSection section) {
+//        sections.add(section);
+//        section.setPaperExtraction(this);
+//    }
+//
+//    public void addFigure(ExtractedFigure figure) {
+//        figures.add(figure);
+//        figure.setPaperExtraction(this);
+//    }
+//
+//    public void addTable(ExtractedTable table) {
+//        tables.add(table);
+//        table.setPaperExtraction(this);
+//    }
+//
+//    public void addEquation(ExtractedEquation equation) {
+//        equations.add(equation);
+//        equation.setPaperExtraction(this);
+//    }
+//
+//    public void addCodeBlock(ExtractedCodeBlock codeBlock) {
+//        codeBlocks.add(codeBlock);
+//        codeBlock.setPaperExtraction(this);
+//    }
+//
+//    public void addReference(ExtractedReference reference) {
+//        references.add(reference);
+//        reference.setPaperExtraction(this);
+//    }
+//
+//    public void addEntity(ExtractedEntity entity) {
+//        entities.add(entity);
+//        entity.setPaperExtraction(this);
+//    }
 }
