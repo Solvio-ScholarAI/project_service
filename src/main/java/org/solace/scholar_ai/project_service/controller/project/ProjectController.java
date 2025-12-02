@@ -179,28 +179,28 @@ public class ProjectController {
         }
     }
 
-//    /**
-//     * Delete a project
-//     */
-//    @DeleteMapping("/{projectId}")
-//    public ResponseEntity<APIResponse<String>> deleteProject(@PathVariable UUID projectId, @RequestParam UUID userId) {
-//        try {
-//            log.info("Delete project {} endpoint hit for user: {}", projectId, userId);
-//
-//            projectService.deleteProject(projectId, userId);
-//
-//            return ResponseEntity.ok(APIResponse.success(HttpStatus.OK.value(), "Project deleted successfully", null));
-//        } catch (RuntimeException e) {
-//            log.error("Error deleting project {}: {}", projectId, e.getMessage());
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-//                    .body(APIResponse.error(HttpStatus.NOT_FOUND.value(), e.getMessage(), null));
-//        } catch (Exception e) {
-//            log.error("Unexpected error deleting project {}: {}", projectId, e.getMessage());
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-//                    .body(APIResponse.error(
-//                            HttpStatus.INTERNAL_SERVER_ERROR.value(), "Failed to delete project", null));
-//        }
-//    }
+    /**
+     * Delete a project
+     */
+    @DeleteMapping("/{projectId}")
+    public ResponseEntity<APIResponse<String>> deleteProject(@PathVariable UUID projectId, @RequestParam UUID userId) {
+        try {
+            log.info("Delete project {} endpoint hit for user: {}", projectId, userId);
+
+            projectService.deleteProject(projectId, userId);
+
+            return ResponseEntity.ok(APIResponse.success(HttpStatus.OK.value(), "Project deleted successfully", null));
+        } catch (RuntimeException e) {
+            log.error("Error deleting project {}: {}", projectId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(APIResponse.error(HttpStatus.NOT_FOUND.value(), e.getMessage(), null));
+        } catch (Exception e) {
+            log.error("Unexpected error deleting project {}: {}", projectId, e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(APIResponse.error(
+                            HttpStatus.INTERNAL_SERVER_ERROR.value(), "Failed to delete project", null));
+        }
+    }
 
     /**
      * Toggle project starred status

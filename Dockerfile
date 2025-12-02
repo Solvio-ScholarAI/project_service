@@ -19,7 +19,10 @@ RUN ./mvnw dependency:go-offline -B
 # Copy source code
 COPY src ./src
 
-# Build the application
+# Apply spotless formatting to fix any formatting issues
+RUN ./mvnw spotless:apply -B
+
+# Build the application with thin jar
 RUN ./mvnw clean package -DskipTests
 
 # Stage 2: Runtime image
@@ -31,11 +34,27 @@ LABEL service="project-service" \
       version="0.0.1-SNAPSHOT" \
       description="Project Service for ScholarAI"
 
-# Install curl for health checks (minimal installation)
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends curl && \
-    rm -rf /var/lib/apt/lists/* && \
-    apt-get clean
+ENV DEBIAN_FRONTEND=noninteractive
+
+# --- Curated TeX Live set for research papers ---
+# Covers: IEEE/ACM classes, amsmath, hyperref/cleveref, geometry, microtype,
+# captions/subcaption, booktabs/multirow, siunitx, algorithm2e,
+# TikZ/PGF(+pgfplots), biblatex + biber, latexmk, XeTeX/LuaTeX, common fonts.
+# Also installs curl for healthcheck and ghostscript for PDF ops.
+RUN set -eux; \
+  apt-get update; \
+  apt-get install -y --no-install-recommends \
+    curl \
+    latexmk ghostscript \
+    texlive-base texlive-latex-base texlive-latex-recommended texlive-latex-extra \
+    texlive-pictures texlive-publishers texlive-science \
+    texlive-bibtex-extra biber \
+    texlive-xetex texlive-luatex texlive-plain-generic texlive-extra-utils \
+    texlive-fonts-recommended fonts-lmodern cm-super \
+    python3-pygments \
+  ; \
+  rm -rf /var/lib/apt/lists/*; \
+  apt-get clean
 
 # Create non-root user
 RUN addgroup --system spring && adduser --system spring --ingroup spring
@@ -53,11 +72,11 @@ RUN chown spring:spring app.jar
 USER spring:spring
 
 # Expose port
-EXPOSE 8082
+EXPOSE 8083
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-  CMD curl -f http://localhost:8082/actuator/health || exit 1
+  CMD curl -f http://localhost:8083/actuator/health || exit 1
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
