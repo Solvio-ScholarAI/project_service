@@ -12,7 +12,7 @@
   [Quick Start](#-quick-start) · [API Documentation](#-api-endpoints) · [AI Features](#-ai-powered-features) · [Architecture](#-architecture)
 </div>
 
----
+-------------------------------------------------------------------------
 
 ## ✨ **Core Features**
 
