@@ -528,7 +528,7 @@ curl -X POST http://localhost:8083/api/v1/chat/message \
   }'
 ```
 
----
+------------------------------------------------
 
 ## 📄 **Document Processing**
 
