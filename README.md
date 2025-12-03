@@ -852,7 +852,7 @@ This project is licensed under the **MIT License** - see the [LICENSE.md](LICENS
 - **LaTeX Community** for document processing capabilities
 - **Academic Research Community** for feedback and requirements
 
----
+-----------------------------------------------------
 
 <div align="center">
   <p><strong>Built with 🎓 for advancing academic research through intelligent project management</strong></p>
