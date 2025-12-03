@@ -66,7 +66,7 @@
 
 1. **Clone and Build**
    ```bash
-   git clone https://github.com/Javafest2025/project-service.git
+   git clone https://github.com/Solvio-ScholarAI/project-service.git
    cd project-service
    ./mvnw clean install
    ```
