@@ -49,7 +49,7 @@
 - **Service Discovery**: Eureka client for microservice communication
 - **Event-Driven Architecture**: Decoupled service communication
 
----
+-----------------------------------------------------------------
 
 ## 🚀 **Quick Start**
 
