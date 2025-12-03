@@ -561,7 +561,7 @@ Automated text and metadata extraction from PDF documents:
 - **Table Extraction**: Structured data extraction from tables
 - **Image Extraction**: Figure and diagram extraction
 
----
+-----------------------------------------------------
 
 ## 🔧 **Development & Testing**
 
