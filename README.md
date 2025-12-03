@@ -188,7 +188,7 @@ docker run -d --name scholar-project-service \
   scholar-project-service
 ```
 
----
+-------------------------------------------------------
 
 ## 🏗️ **Architecture**
 
